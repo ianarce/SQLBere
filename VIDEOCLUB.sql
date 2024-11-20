@@ -1,4 +1,4 @@
-CREATE DATABASE VIDEOCLUB
+ CREATE DATABASE VIDEOCLUB
 USE VIDEOCLUB
 
 --CREACION TABLAS
@@ -78,7 +78,7 @@ ALTER TABLE Pelicula
 
 --Restriccion para Proveedor
 ALTER TABLE Proveedor
-ADD CONSTRAINT CK_Email CHECK(email LIKE '%_@__%.__%')
+ADD CONSTRAINT CK_Email CHECK(email LIKE '%_@__%.__%') --SEPARAR EN 2 COLUMNAS DOMINIO Y NOMBRE/CORREO
 	
 --Restricciones para Alquiler
 ALTER TABLE Alquiler
@@ -87,6 +87,8 @@ ALTER TABLE Alquiler
 ALTER TABLE Alquiler
     ADD CONSTRAINT CK_FechaDevolucion CHECK(fecha_devolucion<=GETDATE()) --fecha real devolucion
 
+ALTER TABLE Membresia
+    ADD CONSTRAINT CK_Membresia CHECK(tipo in ('Basica','VIP','Premium')) 
 
 --AGREGAR VALORES
 

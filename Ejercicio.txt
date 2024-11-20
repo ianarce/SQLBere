@@ -1,0 +1,69 @@
+Ejercicio: Base de Datos para un Centro de Entrenamiento Deportivo
+Modelo Relacional y Restricciones
+Considera las siguientes entidades y relaciones:
+
+Clientes:
+
+ID_Cliente (PK, número único de identificación)
+Nombre
+Apellido
+Edad
+Membresía (tipo de membresía, como "Mensual", "Anual", "Premium")
+Restricción: La edad debe ser mayor o igual a 18.
+
+Entrenadores:
+
+ID_Entrenador (PK, número único de identificación)
+Nombre
+Especialidad (tipo de entrenamiento: cardio, pesas, yoga, etc.)
+Restricción: La especialidad no puede estar vacía.
+
+Clases:
+
+ID_Clase (PK, número único de identificación)
+Nombre_Clase
+Día (día de la semana en que se realiza la clase)
+Hora (hora de inicio de la clase)
+ID_Entrenador (FK, identifica al entrenador que imparte la clase)
+Restricción: La hora de inicio debe estar entre las 6:00 y las 22:00.
+
+Asistencia:
+ID_Asistencia (PK, número único de registro)
+ID_Cliente (FK, referencia al cliente que asiste)
+ID_Clase (FK, referencia a la clase asistida)
+Fecha (fecha específica de la asistencia)
+Restricción: La fecha no puede ser una fecha futura.
+
+Consultas
+Consulta con DISTINCT:
+Listar todas las especialidades de los entrenadores sin repetir.
+
+Consulta con GROUP BY y ORDER BY:
+Contar el número de clases impartidas por cada entrenador, ordenadas de mayor a menor.
+
+Consulta con HAVING:
+Listar los entrenadores que imparten más de 5 clases por semana.
+
+Consulta con Selección y Proyección usando Funciones de Agregación:
+Calcular la edad promedio de los clientes para cada tipo de membresía y mostrar solo el tipo de membresía y la edad promedio.
+
+Consulta usando Atributos Derivados:
+Mostrar el total de asistencias acumuladas de cada cliente a lo largo del mes actual (un atributo derivado a partir de los datos de asistencia).
+
+Consulta Empleando Variables Temporales:
+Definir una variable temporal para calcular el número de clases a las que asiste cada cliente y luego filtrar para mostrar solo aquellos que asistieron a más de 10 clases.
+
+Consultas con JOIN:
+Mostrar los nombres de los clientes junto con el nombre de la clase y el nombre del entrenador de cada clase a la que asistieron.
+
+Consulta con INNER JOIN:
+Mostrar el nombre de cada clase junto con los clientes que asistieron a ella.
+
+Consulta con LEFT JOIN:
+Mostrar todas las clases con el nombre del entrenador, e incluir aquellas clases que aún no tienen entrenadores asignados.
+
+Consulta con RIGHT JOIN:
+Mostrar todos los entrenadores y, en caso de que alguno no tenga clases asignadas, también incluirlos en el resultado.
+
+Consulta con FULL OUTER JOIN:
+Mostrar una lista completa de todos los clientes y entrenadores, relacionando los que tienen asignaciones de clases en común e incluyendo aquellos que no tienen relaciones.
